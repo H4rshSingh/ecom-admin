@@ -15,7 +15,7 @@ function CreateCategory() {
   const categoryType = ["Homedecor", "Walldecor", "Flooring"];
   const { register, handleSubmit, getValues, reset, control } = useForm();
   const [colors, setColors] = useState([{ name: "", hexCode: "" }]);
-  const [services, SetServices] = useState([{ name: "", cost: "" }]);
+  const [services, SetServices] = useState([{ name: "", cost: "", unitType : "" }]);
   const [ratingTypes, SetRatingTypes] = useState([{ name: "", image: null }]);
   const [showCalculator, setShowCalculator] = useState(false);
 
@@ -24,7 +24,7 @@ function CreateCategory() {
   };
 
   const addServiceInput = () => [
-    SetServices([...services, { name: "", cost: "" }]),
+    SetServices([...services, { name: "", cost: "", unitType : ""  }]),
   ];
 
   const addRatingTypeInput = () => {
@@ -189,6 +189,7 @@ function CreateCategory() {
         services.forEach((service, index) => {
           formData.append(`availableServices[${index}][name]`, service.name);
           formData.append(`availableServices[${index}][cost]`, service.cost);
+          formData.append(`availableServices[${index}][unitType]`, service.unitType);
         });
 
         ratingTypes.forEach((ratingType, index) => {
@@ -611,12 +612,21 @@ function CreateCategory() {
                     }
                   />
                   <input
-                    type="text"
+                    type="number"
                     placeholder="Enter Service cost"
                     className="p-2 border"
                     value={service.cost}
                     onChange={(e) =>
                       handleServiceChange(index, "cost", e.target.value)
+                    }
+                  />
+                  <input
+                    type="text"
+                    placeholder="Enter Service /UnitType"
+                    className="p-2 border"
+                    value={service.unitType}
+                    onChange={(e) =>
+                      handleServiceChange(index, "unitType", e.target.value)
                     }
                   />
                 </div>
