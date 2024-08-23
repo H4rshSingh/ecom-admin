@@ -41,10 +41,13 @@ const Banner = () => {
                 className="p-4 border border-gray-200 rounded-md"
               >
                 <div className="relative">
-                  <div className="absolute top-10 z-10 p-4 text-black">
-                    <h1 className="mb-2 mt-1 text-2xl">{item.room.roomType}</h1>
-                    <p className="mb-2 mt-1 text-sm">{item.text}</p>
+                  <div className="h-40 w-full gap-8 flex">
+                    <img src={item.grid[0].room.imgSrc} alt="img" />
+                    <img src={item.grid[1].room.imgSrc} alt="img" />
                   </div>
+
+                  <h1 className="mb-2 mt-1 text-2xl">{item.mainHeading}</h1>
+                  <p className="mb-2 mt-1 text-sm">{item.text}</p>
                 </div>
                 <button
                   type="button"

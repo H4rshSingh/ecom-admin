@@ -24,8 +24,11 @@ const BannerForm = () => {
       // formData.append("link", data.link);
       // formData.append("imgTitle", data.imgTitle);
 
-      formData.append("text", data.text);
-      formData.append("roomId", data.roomId);
+      formData.append("text1", data.text1);
+      formData.append("text2", data.text2);
+      formData.append("link", data.link);
+      formData.append("roomId1", data.roomId1);
+      formData.append("roomId2", data.roomId2);
       formData.append("mainHeading", data.mainHeading);
       formData.append("description", data.description);
 
@@ -88,16 +91,35 @@ const BannerForm = () => {
         </div>
 
         <label
+          htmlFor={`link`}
+          className="block text-sm font-medium leading-5 text-gray-700 mt-4"
+        >
+          Main Link
+        </label>
+        <div className="mt-2">
+          <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-orange-600 ">
+            <input
+              type="link"
+              {...register("link", {
+                required: "link is required",
+              })}
+              id="link"
+              className="block flex-1 border-0 bg-transparent p-2 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+            />
+          </div>
+        </div>
+
+        <label
           htmlFor={`text`}
           className="block text-sm font-medium leading-5 text-gray-700 mt-4"
         >
-          Text
+          Room 1 Text
         </label>
         <div className="mt-2">
           <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-orange-600 ">
             <input
               type="text"
-              {...register("text", {
+              {...register("text1", {
                 required: "text is required",
               })}
               id="text"
@@ -109,13 +131,49 @@ const BannerForm = () => {
           htmlFor={`roomId`}
           className="block text-sm font-medium leading-5 text-gray-700 mt-4"
         >
-          Room ID
+          Room 1 ID
         </label>
         <div className="mt-2">
           <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-orange-600 ">
             <input
               type="text"
-              {...register("roomId", {
+              {...register("roomId1", {
+                required: "room is required",
+              })}
+              id="roomId"
+              className="block flex-1 border-0 bg-transparent p-2 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+            />
+          </div>
+        </div>
+        <label
+          htmlFor={`text`}
+          className="block text-sm font-medium leading-5 text-gray-700 mt-4"
+        >
+          Room 2 Text
+        </label>
+        <div className="mt-2">
+          <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-orange-600 ">
+            <input
+              type="text"
+              {...register("text2", {
+                required: "text is required",
+              })}
+              id="text"
+              className="block flex-1 border-0 bg-transparent p-2 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+            />
+          </div>
+        </div>
+        <label
+          htmlFor={`roomId`}
+          className="block text-sm font-medium leading-5 text-gray-700 mt-4"
+        >
+          Room 2 ID
+        </label>
+        <div className="mt-2">
+          <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-orange-600 ">
+            <input
+              type="text"
+              {...register("roomId2", {
                 required: "room is required",
               })}
               id="roomId"
